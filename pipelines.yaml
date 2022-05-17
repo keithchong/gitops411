@@ -24,6 +24,26 @@ environments:
       bindings:
       - github-push-binding
       template: app-ci-template
+- apps:
+  - name: app-taxi
+    services:
+    - name: taxi
+      pipelines:
+        integration:
+          bindings:
+          - production-app-taxi-taxi-binding
+          - github-push-binding
+      source_url: http://github.com/keithchong/taxi.git
+      webhook:
+        secret:
+          name: webhook-secret-production-taxi
+          namespace: cicd
+  name: production
+  pipelines:
+    integration:
+      bindings:
+      - github-push-binding
+      template: app-ci-template
 - name: stage
 gitops_url: https://github.com/keithchong/gitops411.git
 version: 1

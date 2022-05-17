@@ -1,0 +1,3 @@
+resources:
+- production-environment.yaml
+- production-rolebinding.yaml
